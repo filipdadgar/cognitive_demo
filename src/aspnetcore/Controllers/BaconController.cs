@@ -45,7 +45,7 @@ namespace NotBacon.Controllers
             var response = await httpClient.PostAsync(config["CUSTOM_VISION_API_URL"], content);
             var result = JsonConvert.DeserializeObject<CustomVisionResult>(await response.Content.ReadAsStringAsync());
 
-            var baconPrediction = result.Predictions.FirstOrDefault(p => p.Tag == "bacon");
+            var baconPrediction = result.Predictions.FirstOrDefault(p => p.Tag == "screw");
             var baconProbability = baconPrediction?.Probability ?? 0;
             return baconProbability > 0.7m;
         }
